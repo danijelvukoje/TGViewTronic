@@ -1,4 +1,4 @@
-import * as imageAPI from './api';
+import { imageAPI } from './api';
 import { galleryTemplate } from './templating';
 
 const executePagination = (galleryUpdate, getGallery) => {
@@ -46,4 +46,4 @@ const executePagination = (galleryUpdate, getGallery) => {
   });
 };
 
-export default executePagination;
+export { executePagination };

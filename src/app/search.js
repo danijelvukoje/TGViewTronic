@@ -1,4 +1,4 @@
-import * as imageAPI from './api';
+import { imageAPI } from './api';
 import { galleryTemplate } from './templating';
 
 const executeSearch = galleryUpdate => {
@@ -27,4 +27,4 @@ const executeSearch = galleryUpdate => {
   });
 };
 
-export default executeSearch;
+export { executeSearch };

@@ -1,6 +1,6 @@
 import { mainTemplate, paginationTemplate } from './app/templating';
-import * as executeSearch from './app/search';
-import * as executePagination from './app/pagination';
+import { executeSearch } from './app/search';
+import { executePagination } from './app/pagination';
 import './styles/main.scss';
 
 const initialState = {

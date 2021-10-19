@@ -1,2 +1,2 @@
-# Ignore dist
-/dist/*.js
+.DS_Store
+node_modules

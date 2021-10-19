@@ -32,4 +32,4 @@ const imageAPI = (process.env.NODE_ENV === 'production')
   ? makeAPICall
   : makeMockCall;
 
-export default imageAPI;
+export { imageAPI };
