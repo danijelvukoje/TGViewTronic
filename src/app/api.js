@@ -24,7 +24,7 @@ const makeMockCall = (searchText, page) => {
 }
 
 const makeAPICall = async (searchText, page) => {
-  const res = await fetch(`https://api.unsplash.com/search/photos?page=${page}&query=${searchText}`, {headers: {'Authorization': 'Client-ID gHo75RTRrKxBFHgmuKFJfkTQJDI8YfoszFyse8ovX9s'}});
+  const res = await fetch(`https://api.unsplash.com/search/photos?page=${page}&query=${searchText}`, {headers: {'Authorization': 'Client-ID your access key here'}});
   const resObj = await res.json();
   return resObj;
 }
