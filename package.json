@@ -5,8 +5,8 @@
   "private": true,
   "scripts": {
     "test": "jest --coverage",
-    "start": "NODE_ENV=development webpack serve",
-    "build": "NODE_ENV=production webpack",
+    "start": "cross-env NODE_ENV=development webpack serve",
+    "build": "cross-env NODE_ENV=production webpack",
     "lint": "eslint '**/*.js'",
     "lint-watch": "nodemon --exec 'npm run lint --silent'"
   },
@@ -23,8 +23,10 @@
   "homepage": "https://github.com/danijelvukoje/TGViewTronic#readme",
   "devDependencies": {
     "@babel/core": "^7.15.8",
+    "@babel/plugin-transform-runtime": "^7.15.8",
     "@babel/preset-env": "^7.15.8",
     "babel-loader": "^8.2.2",
+    "cross-env": "^7.0.3",
     "css-loader": "^6.4.0",
     "eslint-config-salt": "^1.1.0",
     "jest": "^27.3.0",
@@ -36,5 +38,8 @@
     "webpack": "^5.58.2",
     "webpack-cli": "^4.9.0",
     "webpack-dev-server": "^4.3.1"
+  },
+  "dependencies": {
+    "@babel/runtime": "^7.15.4"
   }
 }

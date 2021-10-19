@@ -1,12 +1,6 @@
-import { mainTemplate, galleryTemplate } from './app/templating';
-
+import { mainTemplate } from './app/templating';
+import { executeSearch } from './app/search';
 import './styles/main.scss'
-
-/**
- * In react, we use const [state, setState] = useState('default value');
- * 
- */
-
 
 let initialState = { 
   title: 'TGViewTronic', 
@@ -21,8 +15,6 @@ function render(htmlString, elem) {
   render(mainTemplate(initialState), document.querySelector('#root')); 
 })();
 
-const mockImages = [{url: '#', description: 'nice1', artist: 'caj'}, {url: '#', description: 'nice2', artist: 'danijel'}, {url: '#', description: 'nice3', artist: 'poul'}]
-
 let galleryState = {};
 
 const galleryUpdate = (newGalleryState) => {
@@ -30,29 +22,27 @@ const galleryUpdate = (newGalleryState) => {
   window.dispatchEvent(new Event('galleryUpdate'));
 }
 
-
 window.addEventListener('galleryUpdate', () => {
-  const imageWrapperNode = document.querySelector('.image-wrapper')
-  render(galleryTemplate(galleryState.html), imageWrapperNode)
-})
+  const imageWrapperNode = document.querySelector('.image-wrapper');
+  const paginationNode = document.querySelector('.pagination');
+  render(galleryState.html, imageWrapperNode);
+  render(galleryState.paginationHtml, paginationNode);
+});
+
+executeSearch(galleryUpdate);
 
 
-galleryUpdate({html: mockImages});
-
-// window.dispatchEvent(new Event('initialLoad')); 
-
-// window.addEventListener('initialLoad', () => { 
-//   render(mainTemplate(initialState), document.querySelector('#root')); 
-// });
 
 
-/** Might work ?  */
-// function stateCreator(initVal, eventName, element) {
+
+
+/** Might work ? It probably does! */
+// function stateCreator(initVal, eventName, element, template) {
 //   let val = initVal;
 //   window.addEventListener(eventName, () => {
-//     render(galleryTemplate(val), element)
+//     render(template(val), element)
 //   })
-//   function updater(newState, eventName) {
+//   function updater(newState) {
 //       val = newState;
 //       window.dispatchEvent(new Event(eventName));
 //       return val;
