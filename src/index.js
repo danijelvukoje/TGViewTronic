@@ -1,5 +1,6 @@
-import { mainTemplate } from './app/templating';
+import { mainTemplate, paginationTemplate } from './app/templating';
 import { executeSearch } from './app/search';
+import { executePagination } from './app/pagination';
 import './styles/main.scss'
 
 let initialState = { 
@@ -15,21 +16,24 @@ function render(htmlString, elem) {
   render(mainTemplate(initialState), document.querySelector('#root')); 
 })();
 
-let galleryState = {};
-
+let galleryState = { currentPage: 0, maxPage: 0 };
+//Define a function that returns gallerState, passes in as aa callbacck in executePagaination, 
 const galleryUpdate = (newGalleryState) => {
+  console.log(newGalleryState);
+  console.log(galleryState);
   galleryState = { ...galleryState, ...newGalleryState };
+  console.log(galleryState);
   window.dispatchEvent(new Event('galleryUpdate'));
 }
 
 window.addEventListener('galleryUpdate', () => {
   const imageWrapperNode = document.querySelector('.image-wrapper');
-  const paginationNode = document.querySelector('.pagination');
   render(galleryState.html, imageWrapperNode);
-  render(galleryState.paginationHtml, paginationNode);
+  paginationTemplate(galleryState);
 });
 
 executeSearch(galleryUpdate);
+executePagination(galleryUpdate, () => galleryState);
 
 
 

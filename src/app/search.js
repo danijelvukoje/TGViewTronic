@@ -22,7 +22,7 @@ const executeSearch = (galleryUpdate) => {
       });
     });
     newGalleryState.html = galleryTemplate(newGalleryState.images);
-    newGalleryState.paginationHtml = paginationTemplate(newGalleryState);
+    // newGalleryState.paginationHtml = paginationTemplate(newGalleryState);
     galleryUpdate(newGalleryState);
   })
 }

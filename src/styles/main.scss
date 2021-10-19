@@ -2,5 +2,14 @@ h1 {
   font-size: large;
 }
 
+.pagination__button {
+  display: initial;
+}
+
+.pagination__button--hidden {
+  display: none;
+}
+
+
 
 // height="400px" object-fit="contain"

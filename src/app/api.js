@@ -24,7 +24,9 @@ const makeMockCall = (searchText, page) => {
 }
 
 const makeAPICall = async (searchText, page) => {
-  return;
+  const res = await fetch(`https://api.unsplash.com/search/photos?page=${page}&query=${searchText}`, {headers: {'Authorization': 'Client-ID gHo75RTRrKxBFHgmuKFJfkTQJDI8YfoszFyse8ovX9s'}});
+  const resObj = await res.json();
+  return resObj;
 }
 
 const imageAPI =  (process.env.NODE_ENV === 'production') 

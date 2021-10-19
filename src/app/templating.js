@@ -12,6 +12,8 @@ const mainTemplate = (initialState) => {
     <main class="image-wrapper">
     </main>
     <section class="pagination">
+      <button class="pagination__button--hidden" id="previous-button">Prev</button>
+      <button class="pagination__button--hidden" id="next-button">Next</button>
     </section>
     <footer class="footer">
       <p class="footer__text">Built by TGV 2021</p>
@@ -48,14 +50,20 @@ const galleryTemplate = (imageArray) => {
 }
 
 const paginationTemplate = (galleryState) => {
-  let paginationHTML = '';
+  const prevButton = document.querySelector('#previous-button');
+  const nextButton = document.querySelector('#next-button');
+  
   if (galleryState.currentPage > 1) {
-    paginationHTML += '<button class="pagination__button" id="previous-button">Prev</button>';
+    prevButton.className = "pagination__button"
+  } else {
+    prevButton.className = "pagination__button--hidden"
   }
   if (galleryState.currentPage < galleryState.maxPage) {
-    paginationHTML += '<button class="pagination__button" id="next-button">Next</button>';
+    nextButton.className = "pagination__button"
+  } else {
+    nextButton.className = "pagination__button--hidden"
   }
-  return paginationHTML;
+  return;
 }
 
 export {
