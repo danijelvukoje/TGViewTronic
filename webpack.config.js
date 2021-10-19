@@ -1,5 +1,5 @@
 const path = require('path');
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
   entry: './src/index.js',
@@ -14,7 +14,7 @@ module.exports = {
           MiniCssExtractPlugin.loader,
           { loader: 'css-loader' },
           { loader: 'sass-loader' },
-        ]
+        ],
       },
       {
         test: /\.m?js$/,
@@ -23,16 +23,16 @@ module.exports = {
           loader: 'babel-loader',
           options: {
             presets: ['@babel/preset-env'],
-            cacheDirectory: true
-          }
-        }
+            cacheDirectory: true,
+          },
+        },
       },
-    ]
+    ],
   },
   devServer: {
     static: {
       directory: path.join(__dirname, 'dist'),
-      watch: true
+      watch: true,
     },
     compress: true,
     port: 9000,

@@ -1,5 +1,4 @@
-const mainTemplate = (initialState) => { 
-  return `
+const mainTemplate = initialState => `
   <header class="header">
   <h1>${initialState.title}</h1>
   </header>
@@ -23,10 +22,8 @@ const mainTemplate = (initialState) => {
     </footer>
   </div>
   `;
-}
 
-const imageTemplate = (imageState) => {
-  return `
+const imageTemplate = imageState => `
     <figure class="flip-card">
       <div class="flip-card__inner">
         <div class="flip-card__front">
@@ -39,35 +36,33 @@ const imageTemplate = (imageState) => {
       </div>
     </figure>
   `;
-}
 
-const galleryTemplate = (imageArray) => {
+const galleryTemplate = imageArray => {
   let galleryHTML = '';
   imageArray.forEach(img => {
     galleryHTML += imageTemplate(img);
   });
   return galleryHTML;
-}
+};
 
-const paginationTemplate = (galleryState) => {
+const paginationTemplate = galleryState => {
   const prevButton = document.querySelector('#previous-button');
   const nextButton = document.querySelector('#next-button');
-  
+
   if (galleryState.currentPage > 1) {
-    prevButton.className = "pagination__button"
+    prevButton.className = 'pagination__button';
   } else {
-    prevButton.className = "pagination__button--hidden"
+    prevButton.className = 'pagination__button--hidden';
   }
   if (galleryState.currentPage < galleryState.maxPage) {
-    nextButton.className = "pagination__button"
+    nextButton.className = 'pagination__button';
   } else {
-    nextButton.className = "pagination__button--hidden"
+    nextButton.className = 'pagination__button--hidden';
   }
-  return;
-}
+};
 
 export {
   mainTemplate,
   galleryTemplate,
-  paginationTemplate
-}
+  paginationTemplate,
+};

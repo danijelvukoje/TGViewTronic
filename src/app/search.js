@@ -1,7 +1,7 @@
-import { imageAPI } from './api.js'
-import { galleryTemplate, paginationTemplate } from './templating';
+import * as imageAPI from './api';
+import { galleryTemplate } from './templating';
 
-const executeSearch = (galleryUpdate) => {
+const executeSearch = galleryUpdate => {
   const searchButton = document.querySelector('.search__button');
   const searchInput = document.querySelector('.search__field');
 
@@ -12,19 +12,19 @@ const executeSearch = (galleryUpdate) => {
       searchText,
       currentPage: 1,
       maxPage: resObj.total_pages,
-      images: []
+      images: [],
     };
     resObj.results.forEach(elem => {
       newGalleryState.images.push({
         artist: elem.user.name,
         description: elem.description,
-        url: elem.urls.small
+        url: elem.urls.small,
       });
     });
     newGalleryState.html = galleryTemplate(newGalleryState.images);
     // newGalleryState.paginationHtml = paginationTemplate(newGalleryState);
     galleryUpdate(newGalleryState);
-  })
-}
+  });
+};
 
-export { executeSearch };
+export default executeSearch;
