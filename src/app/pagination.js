@@ -1,5 +1,5 @@
-import { imageAPI } from './api';
-import { galleryTemplate } from './templating';
+import imageAPI from './api.js';
+import { galleryTemplate } from './templating.js';
 
 const executePagination = (galleryUpdate, getGallery) => {
   const prevButton = document.querySelector('#previous-button');
@@ -46,4 +46,4 @@ const executePagination = (galleryUpdate, getGallery) => {
   });
 };
 
-export { executePagination };
+export default executePagination;

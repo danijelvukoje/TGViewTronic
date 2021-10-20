@@ -1,5 +1,5 @@
-import { imageAPI } from './api';
-import { galleryTemplate } from './templating';
+import imageAPI from './api.js';
+import { galleryTemplate } from './templating.js';
 
 const executeSearch = galleryUpdate => {
   const searchButton = document.querySelector('.search__button');
@@ -27,4 +27,4 @@ const executeSearch = galleryUpdate => {
   });
 };
 
-export { executeSearch };
+export default executeSearch;

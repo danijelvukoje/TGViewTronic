@@ -1,6 +1,6 @@
 const mainTemplate = initialState => `
   <header class="header">
-  <h1>${initialState.title}</h1>
+    <h1 class="header__text">${initialState.title}</h1>
   </header>
   <div class="page-wrapper">
     <section class="search">
@@ -11,8 +11,12 @@ const mainTemplate = initialState => `
     <main class="image-wrapper">
     </main>
     <section class="pagination">
-      <button class="pagination__button--hidden" id="previous-button">Prev</button>
-      <button class="pagination__button--hidden" id="next-button">Next</button>
+      <div class="button-prev-container">
+        <button class="pagination__button--hidden" id="previous-button">Prev</button>
+      </div>
+      <div class="button-next-container">
+        <button class="pagination__button--hidden" id="next-button">Next</button>
+      </div>
     </section>
     <footer class="footer">
       <p class="footer__text">Built by TGV 2021</p>
@@ -27,7 +31,7 @@ const imageTemplate = imageState => `
     <figure class="flip-card">
       <div class="flip-card__inner">
         <div class="flip-card__front">
-          <img src="${imageState.url}" alt="${imageState.description}">
+          <img src="${imageState.url}" alt="${imageState.description}" class="flip-card__img">
         </div>
         <div class="flip-card__back">
           <h3 class="flip-card__artist">${imageState.artist}</h3>

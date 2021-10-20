@@ -1,15 +1,257 @@
-h1 {
-  font-size: large;
+/* ------ CSS RESET ----- */
+
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
+
+/* Remove default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role='list'],
+ol[role='list'] {
+  list-style: none;
+}
+
+/* Set core root defaults */
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+/* Set core body defaults */
+body {
+  min-height: 100vh;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+   scroll-behavior: auto;
+  }
+  
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ----- IMPORTS ----- */
+
+@import url('https://fonts.googleapis.com/css2?family=Chivo:wght@300;900&display=swap');
+
+/* ----- VARIABLES ----- */
+
+$tgv__orange: #FF6F00;
+$tgv__gray: #3F3A45;
+$tgv__white: #F3EDFA;
+
+
+/* ----- STYLE BELOW ----- */
+
+
+.header {
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 8vh;
+  width: 100vw;
+  background: $tgv__orange;
+  border-radius: 0 0 5vmin 0;
+  z-index: 1;
+}
+
+.header__text {
+  color: $tgv__gray;
+  font-family: 'Chivo', sans-serif;
+}
+
+.page-wrapper {
+  background: $tgv__gray;
+  padding: 8vh;
+  min-height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.search {
+  display: flex;
+  justify-content: center;
+  width: 80vw;
+  height: 5vmin;
+  max-width: 400px;
+  margin: 5vmin;
+  border-radius: 2vmin 0 2vmin 0;
+  background-color: $tgv__white;
+}
+
+.search__field {
+  flex-grow: 2;
+  border-radius: 2vmin 0 0 0;
+  padding-left: 2vmin;
+  border: none;
+  background: $tgv__white;
+  font-family: 'Chivo', sans-serif;
+
+  &:focus {
+    outline: 0;
+  }
+}
+
+.search__button {
+  flex-grow: 1;
+  border-radius: 2vmin 0 2vmin 0;
+  border: none;
+  background: $tgv__orange;
+  color: $tgv__gray;
+  font-family: 'Chivo', sans-serif;
+}
+
+.image-wrapper {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 5vmin;
+  max-width: 1200px;
+}
+
+.flip-card {
+  background-color: transparent;
+  width: 400px;
+  height: 400px;
+  perspective: 1000px;
+}
+
+.flip-card__inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+.flip-card:hover .flip-card__inner {
+  transform: rotateY(180deg);
+}
+
+.flip-card__front, .flip-card__back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+}
+
+.flip-card__front {
+  color: black;
+}
+
+.flip-card__back {
+  border-radius: 0 10vmin 0 10vmin;
+  padding: 5vmin;
+  background-color: $tgv__orange;
+  color: $tgv__gray;
+  font-family: 'Chivo', sans-serif;
+  transform: rotateY(180deg);
+}
+
+.flip-card__img {
+  border-radius: 10vmin 0 10vmin 0;
+  width: 400px;
+  height: 400px;
+  object-fit: cover;
+  filter: grayscale(100%)
+    sepia(100%)
+    contrast(150%)
+    hue-rotate(-25deg);
+}
+
+.pagination {
+  display: flex;
+  padding: 5vh 0;
+  width: 80vw;
+  max-width: 400px;
+  justify-content: space-between;
+  gap: 5vmin;
+}
+
+
 
 .pagination__button {
   display: initial;
+  width: 20vw;
+  max-width: calc(200px - 2.5vmin);
+  height: 5vh;
+  border-radius: 2vmin 0 2vmin 0;
+  border: none;
+  background: $tgv__orange;
+  color: $tgv__gray;
+  font-family: 'Chivo', sans-serif;
 }
 
 .pagination__button--hidden {
   display: none;
 }
 
+.footer {
+  position: fixed;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  height: 8vh;
+  width: 100vw;
+  background: $tgv__orange;
+  border-radius: 5vmin 0 0 0;
+}
 
+.footer__text {
+  font-family: 'Chivo', sans-serif;
+  color: $tgv__gray;
+}
 
-// height="400px" object-fit="contain"
+.footer__github {
+  height: 6vh;
+  width: auto;
+}

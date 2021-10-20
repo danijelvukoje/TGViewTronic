@@ -1,6 +1,6 @@
-import { mainTemplate, paginationTemplate } from './app/templating';
-import { executeSearch } from './app/search';
-import { executePagination } from './app/pagination';
+import { mainTemplate, paginationTemplate } from './app/templating.js';
+import executeSearch from './app/search.js';
+import executePagination from './app/pagination.js';
 import './styles/main.scss';
 
 const initialState = {
@@ -32,18 +32,3 @@ window.addEventListener('galleryUpdate', () => {
 
 executeSearch(galleryUpdate);
 executePagination(galleryUpdate, () => galleryState);
-
-/** Might work ? It probably does! */
-// function stateCreator(initVal, eventName, element, template) {
-//   let val = initVal;
-//   window.addEventListener(eventName, () => {
-//     render(template(val), element)
-//   })
-//   function updater(newState) {
-//       val = newState;
-//       window.dispatchEvent(new Event(eventName));
-//       return val;
-//     }
-
-//   return[val , updater]
-// }
