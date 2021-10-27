@@ -13,6 +13,7 @@ describe('testing templates', () => {
   const dummyInitState = {title: 'Mock Title', githubLink: 'google.com'}
   const mainTemplateHTML = mainTemplate(dummyInitState);
   
+  
   test('main template should render state', () => {
     testNode.innerHTML = mainTemplateHTML;
     console.log(testNode.innerHTML);
