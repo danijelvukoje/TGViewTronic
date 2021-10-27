@@ -1,12 +1,11 @@
 const apiKey = 'Client-ID ' + process.env.UNSPLASH_API_KEY
-console.log(process.env);
 const makeMockCall = searchText => {
   const resObj = {
     total: 30,
     total_pages: 3,
     results: [],
   };
-
+//Hel
   const imgObj = {
     user: {
       name: 'firstname lastname',

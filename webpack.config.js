@@ -1,15 +1,15 @@
 const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const webpack = require('webpack');
-const dotenv = require('dotenv').config( {
-  path: path.join(__dirname, '.env')
-} );
 
 module.exports = {
   entry: './src/index.js',
-  plugins: [new MiniCssExtractPlugin(), new webpack.DefinePlugin({
-    "process.env": dotenv.parsed
-  })],
+  plugins: [new MiniCssExtractPlugin(), 
+    new webpack.DefinePlugin({
+      "process.env.PORT": process.env.PORT,
+      "process.env.UNSPLASH_API_KEY": process.env.UNSPLASH_API_KEY
+    })
+  ],
   devtool: false,
   module: {
     rules: [
