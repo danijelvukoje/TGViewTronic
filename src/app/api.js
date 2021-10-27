@@ -5,7 +5,7 @@ const makeMockCall = searchText => {
     total_pages: 3,
     results: [],
   };
-
+//Hel
   const imgObj = {
     user: {
       name: 'firstname lastname',

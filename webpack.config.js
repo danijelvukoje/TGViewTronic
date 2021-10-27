@@ -1,9 +1,6 @@
 const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const webpack = require('webpack');
-const dotenv = require('dotenv').config( {
-  path: path.join(__dirname, '.env')
-} );
 
 module.exports = {
   entry: './src/index.js',
