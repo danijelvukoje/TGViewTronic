@@ -5,8 +5,8 @@
   "private": true,
   "scripts": {
     "test": "jest --coverage",
-    "start": "cross-env NODE_ENV=development webpack serve",
-    "build": "cross-env NODE_ENV=production webpack serve",
+    "start": "cross-env NODE_ENV=development webpack",
+    "build": "cross-env NODE_ENV=production webpack",
     "lint": "eslint '**/*.js' --fix",
     "lint-watch": "nodemon --exec 'npm run lint --silent'"
   },
