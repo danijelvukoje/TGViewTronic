@@ -1,0 +1,7 @@
+{
+  "extends": "salt",
+  "rules": {
+    // Overrides here
+    "import/extensions": 0
+  }
+}
