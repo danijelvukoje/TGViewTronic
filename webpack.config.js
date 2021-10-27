@@ -4,12 +4,15 @@ const webpack = require('webpack');
 const dotenv = require('dotenv').config( {
   path: path.join(__dirname, '.env')
 } );
-// new webpack.DefinePlugin({
-//   "process.env": dotenv.parsed
-// })
+
 module.exports = {
   entry: './src/index.js',
-  plugins: [new MiniCssExtractPlugin()],
+  plugins: [new MiniCssExtractPlugin(), 
+    new webpack.DefinePlugin({
+      "process.env.PORT": process.env.PORT,
+      "process.env.UNSPLASH_API_KEY": process.env.UNSPLASH_API_KEY
+    })
+  ],
   devtool: false,
   module: {
     rules: [

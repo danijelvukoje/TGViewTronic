@@ -1,5 +1,4 @@
 const apiKey = 'Client-ID ' + process.env.UNSPLASH_API_KEY
-console.log(process.env);
 const makeMockCall = searchText => {
   const resObj = {
     total: 30,
