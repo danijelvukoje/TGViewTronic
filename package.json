@@ -5,8 +5,9 @@
   "private": true,
   "scripts": {
     "test": "jest --coverage",
-    "start": "cross-env NODE_ENV=development webpack serve",
-    "build": "cross-env NODE_ENV=production webpack serve",
+    "dev-start": "cross-env NODE_ENV=development webpack serve",
+    "start": "node server.js",
+    "build": "cross-env NODE_ENV=production webpack",
     "lint": "eslint '**/*.js' --fix",
     "lint-watch": "nodemon --exec 'npm run lint --silent'"
   },
@@ -42,6 +43,9 @@
     "webpack-dev-server": "^4.3.1"
   },
   "dependencies": {
-    "@babel/runtime": "^7.15.4"
+    "@babel/runtime": "^7.15.4",
+    "babel-plugin-inline-dotenv": "^1.6.0",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1"
   }
 }

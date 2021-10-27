@@ -1,3 +1,5 @@
+const apiKey = 'Client-ID ' + process.env.UNSPLASH_API_KEY
+console.log(process.env);
 const makeMockCall = searchText => {
   const resObj = {
     total: 30,
@@ -23,7 +25,7 @@ const makeMockCall = searchText => {
 };
 
 const makeAPICall = async (searchText, page) => {
-  const res = await fetch(`https://api.unsplash.com/search/photos?page=${page}&query=${searchText}`, { headers: { Authorization: 'Client-ID your access key here' } });
+  const res = await fetch(`https://api.unsplash.com/search/photos?page=${page}&query=${searchText}`, { headers: { Authorization: apiKey } });
   const resObj = await res.json();
   return resObj;
 };
