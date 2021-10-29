@@ -3,7 +3,6 @@ const express = require('express');
 
 const app = express();
 const { PORT } = process.env;
-console.log(PORT);
 
 app.use(express.static('dist'));
 

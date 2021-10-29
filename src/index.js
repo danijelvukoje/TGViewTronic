@@ -15,9 +15,8 @@ function render(htmlString, elem) {
 
 (function initalLoad() {
   render(mainTemplate(initialState), document.querySelector('#root'));
-  const searchField = document.querySelector('.search__field')
+  const searchField = document.querySelector('.search__field');
   const searchSuggestions = document.querySelector('#search-suggestions');
-  const searchButton = document.querySelector('.search__button');
   searchField.addEventListener('focus', () => {
     const localSearches = readLocalSearches();
     searchSuggestions.innerHTML = buildHistoryHTML(localSearches);

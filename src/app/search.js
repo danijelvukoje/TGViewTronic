@@ -2,32 +2,31 @@ import imageAPI from './api.js';
 import { galleryTemplate } from './templating.js';
 
 const readLocalSearches = () => JSON.parse(window.localStorage.getItem('searchHistory'));
-const writeLocalSearches = (arr) => window.localStorage.setItem('searchHistory', JSON.stringify(arr));
+const writeLocalSearches = arr => window.localStorage.setItem('searchHistory', JSON.stringify(arr));
 
-const updateHistory = (string, readLocalSearches, writeLocalSearches) => {
-  const localSearches = readLocalSearches() || [];
+const updateHistory = (string, readLocal, writeLocal) => {
+  const localSearches = readLocal() || [];
   const stringIndex = localSearches.indexOf(string);
-  if (stringIndex === -1) { 
+  if (stringIndex === -1) {
     localSearches.unshift(string);
-    if(localSearches.length > 5){
+    if (localSearches.length > 5) {
       localSearches.pop();
     }
-    return writeLocalSearches(localSearches);
-  } 
+    return writeLocal(localSearches);
+  }
 
   localSearches.splice(stringIndex, 1);
   localSearches.unshift(string);
-  writeLocalSearches(localSearches);
+  return writeLocal(localSearches);
 };
 
-const buildHistoryHTML = (array) => {
+const buildHistoryHTML = array => {
   let htmlStr = '';
   array.forEach((elem, i) => {
     htmlStr += `<option class="search-suggestions__term" id="search-term${i}" value="${elem}">`;
-  })
+  });
   return htmlStr;
-}
-
+};
 
 const executeSearch = galleryUpdate => {
   const searchButton = document.querySelector('.search__button');
@@ -62,5 +61,5 @@ export {
   executeSearch,
   updateHistory,
   buildHistoryHTML,
-  readLocalSearches
+  readLocalSearches,
 };
