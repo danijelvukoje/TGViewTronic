@@ -3,10 +3,12 @@ const mainTemplate = initialState => `
     <h1 class="header__text">${initialState.title}</h1>
   </header>
   <div class="page-wrapper">
-    <section class="search">
-      <input type="text" class="search__field">
-      <button class="search__button">Search</button>
-      <div class="search-suggestions"></div>
+    <section class="search-wrapper">
+      <div class="search">
+        <input type="text" list="search-suggestions" class="search__field">
+        <button class="search__button">Search</button>
+      </div>
+      <datalist class="search-suggestions" id="search-suggestions"></datalist>
     </section>
     <main class="image-wrapper">
     </main>

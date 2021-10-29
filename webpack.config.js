@@ -4,11 +4,11 @@ const webpack = require('webpack');
 
 module.exports = {
   entry: './src/index.js',
-  plugins: [new MiniCssExtractPlugin(), 
+  plugins: [new MiniCssExtractPlugin(),
     new webpack.DefinePlugin({
-      "process.env.PORT": process.env.PORT,
-      "process.env.UNSPLASH_API_KEY": process.env.UNSPLASH_API_KEY
-    })
+      'process.env.PORT': process.env.PORT,
+      'process.env.UNSPLASH_API_KEY': process.env.UNSPLASH_API_KEY,
+    }),
   ],
   devtool: false,
   module: {
